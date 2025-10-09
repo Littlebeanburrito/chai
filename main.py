@@ -10,6 +10,7 @@ def main():
     print("Welcome to Chai!")
     user_id = input("Please enter your user ID to begin: ")
 
+
     # --- TODO 1: Instantiate the Database Wrapper ---
     # Create an instance of the FlatFileManager, passing the user_id to it.
     # This object will handle all our file reading and writing.
