@@ -27,7 +27,7 @@ class FlatFileManager:
         If it doesn't exist, this method should create it.
         Hint: Use os.makedirs() and its `exist_ok` parameter.
         """
-        pass # fixme!
+        os.makedirs(self.storage_dir, exist_ok=True)
 
 
     def _init_index(self) -> None:
@@ -38,7 +38,15 @@ class FlatFileManager:
         3 - Load the contents of conversations.json into self.conversations_index dictionary
         """
         index_file = os.path.join(self.storage_dir, "conversations.json")
-        pass # fixme!
+
+        # check if index file exists
+        if not os.path.exists(index_file):
+            # create and save initial empty index file
+            self.save_index()  
+
+        # load the index file
+        with open(index_file, "r") as f:
+            self.conversations_index = json.load(f)
 
     def save_index(self) -> None:
         """
@@ -49,7 +57,8 @@ class FlatFileManager:
         Hint: Use json.dump() with the 'indent' parameter for readable formatting.
         """
         index_file = os.path.join(self.storage_dir, "conversations.json")
-        pass #fixme!
+        with open(index_file, "w") as f:
+            json.dump(self.conversations_index, f, indent=4)
 
     def get_conversation(self, conversation_id: str) -> List[any]:
         """
