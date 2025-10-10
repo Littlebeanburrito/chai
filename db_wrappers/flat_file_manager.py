@@ -70,7 +70,17 @@ class FlatFileManager:
             - If the file does not exist it should return an empty list `[]` without raising an error.
             Hint: Use a try-except block to handle error case.
         """
-        pass # fixme!
+        if conversation_id not in self.conversations_index:
+            return []
+        
+        if conversation_id in self.conversations_index:
+            filepath = os.path.join(self.storage_dir, self.conversations_index[conversation_id])
+            try:
+                with open(filepath, "r") as f:
+                    messages = json.load(f)
+                    return messages
+            except FileNotFoundError:
+                return []
 
     def save_conversation(self, conversation_id: str, relative_filepath: str, messages: List[any]) -> None:
         """
@@ -83,7 +93,12 @@ class FlatFileManager:
             - Use JSON formatting to make the file human-readable (e.g., indentation).
             Hint: Use `json.dump()` with the `indent` parameter.
         """
-        pass # fixme!
+        self.conversations_index[conversation_id] = relative_filepath
+        self.save_index()
+
+        filepath = os.path.join(self.storage_dir, relative_filepath)
+        with open(filepath, "w") as f:
+            json.dump(messages, f, indent=4)
 
     def run_tests(self):
         print("Testing FlatFileManager._ensure_storage_exists()")

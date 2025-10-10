@@ -12,10 +12,10 @@ def main():
 
 
     # --- TODO 1: Instantiate the Database Wrapper ---
-    # Create an instance of the FlatFileManager, passing the user_id to it.
+    # Create an instance of the FlatFileManager,
     # This object will handle all our file reading and writing.
     # Specify the storage directory as "data"
-    db_manager = None # fixme!
+    db_manager = FlatFileManager("data")
 
     # --- TODO 6 (do this last): Create a way for a user_id to have multiple conversation threads
     # Requirements:
