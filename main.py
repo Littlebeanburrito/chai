@@ -71,6 +71,7 @@ def run_chat(db_manager: FlatFileManager, conversation_id: str) -> None:
         #    Call your db_manager's save method.
         relative_filepath = f"{conversation_id}.json"
         db_manager.save_conversation(conversation_id, relative_filepath, messages)
+        # fixme! use db manager save method here
 
         # ----------------------------------------------------
 
