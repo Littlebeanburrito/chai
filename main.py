@@ -9,7 +9,7 @@ def main():
     """
     print("Welcome to Chai!")
     user_id = input("Please enter your user ID to begin: ").strip()
-    db_manager = FlatFileManager(useer_id = user_id)
+    db_manager = FlatFileManager(user_id = user_id)
 
     if db_manager.conversations_index:
         print("\nyour conversations:")
@@ -31,23 +31,12 @@ def main():
             except (ValueError, IndexError):
                 print("Invalid choice. Starting a new conversation.")
                 return
-
-    # --- TODO 1: Instantiate the Database Wrapper ---
-    # Create an instance of the FlatFileManager,
-    # This object will handle all our file reading and writing.
-    # Specify the storage directory as "data"
-    db_manager = FlatFileManager("data")
-
-    # --- TODO 6 (do this last): Create a way for a user_id to have multiple conversation threads
-    # Requirements:
-    #   - If user already exists, then have the user select which thread (conversation_id) they want to use
-    #       - Give the option to use a new thread
-    #   - Proceed to run_chat() with the correct conversation_id
-    #   Hint: This is not a "clean" addition, you may need to restructure how data is stored and indexed
-    #         There are many ways to do this. Devise a plan and implement your own solution.
-
-    conversation_id = f"{user_id}_conversation"
+    else:
+        print("No existing conversations found. Starting a new one.")
+        conversation_id = f"{user_id}_conversation_1"
+    
     run_chat(db_manager, conversation_id)
+
 
 def run_chat(db_manager: FlatFileManager, conversation_id: str) -> None:
     # --- TODO 2: Check if conversation already exists, printout conversation if so ---

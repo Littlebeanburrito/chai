@@ -141,5 +141,5 @@ class FlatFileManager:
 
 if __name__ == "__main__":
     print("Testing FlatFileManager")
-    manager = FlatFileManager(storage_dir="data_test")
+    manager = FlatFileManager(user_id= "test_user", base_dir="data_test")
     manager.run_tests()
