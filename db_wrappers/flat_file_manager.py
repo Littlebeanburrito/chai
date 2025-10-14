@@ -8,14 +8,16 @@ class FlatFileManager:
     """
     Manages storing and retrieving chat conversations in flat JSON files.
     """
-    def __init__(self, storage_dir="data"):
+    def __init__(self, user_id: str, base_dir="data"):
         """
         Initializes the FlatFileManager for a specific user.
 
         Args:
             storage_dir (str): The unique identifier for the user.
         """
-        self.storage_dir = storage_dir
+        self.user_id = user_id
+        self.base_dir = base_dir
+        self.storage_dir = os.path.join(base_dir, user_id)
         self._ensure_storage_exists()
         self.conversations_index = {} # Key: conversation_id => Value: Filepath
         self._init_index()
