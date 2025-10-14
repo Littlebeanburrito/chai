@@ -24,6 +24,7 @@ def main():
             suffix = 1
             while f"{base_id}_{suffix}" in db_manager.conversations_index:
                 suffix += 1
+            conversation_id = f"{base_id}_{suffix}"
         else:
             try:
                 idx = int(choice) - 1
