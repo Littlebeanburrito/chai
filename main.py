@@ -8,8 +8,29 @@ def main():
     Handles the REPL (Read-Eval-Print Loop) for user interaction.
     """
     print("Welcome to Chai!")
-    user_id = input("Please enter your user ID to begin: ")
+    user_id = input("Please enter your user ID to begin: ").strip()
+    db_manager = FlatFileManager(useer_id = user_id)
 
+    if db_manager.conversations_index:
+        print("\nyour conversations:")
+        for idx, cid in enumerate(db_manager.conversations_index.keys()):
+            print(f"{idx + 1}. {cid}")
+        print("N. Start a new conversation")
+
+        choice = input("Select a conversation by number or 'N' for new: ").strip().lower()
+
+        if choice == 'n':
+            base_id = f"{user_id}_conversation"
+            suffix = 1
+            while f"{base_id}_{suffix}" in db_manager.conversations_index:
+                suffix += 1
+        else:
+            try:
+                idx = int(choice) - 1
+                conversation_id = list(db_manager.conversations_index.keys())[idx]
+            except (ValueError, IndexError):
+                print("Invalid choice. Starting a new conversation.")
+                return
 
     # --- TODO 1: Instantiate the Database Wrapper ---
     # Create an instance of the FlatFileManager,

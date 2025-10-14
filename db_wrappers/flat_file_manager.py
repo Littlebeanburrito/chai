@@ -48,7 +48,10 @@ class FlatFileManager:
 
         # load the index file
         with open(index_file, "r") as f:
-            self.conversations_index = json.load(f)
+            try:
+                self.conversations_index = json.load(f)
+            except json.JSONDecodeError:
+                self.conversations_index = {}
 
     def save_index(self) -> None:
         """
