@@ -11,13 +11,13 @@ from pymongo import MongoClient
 # For Windows Command Prompt: set MONGO_KEY=password_here
 # For Windows PowerShell: $env:MONGO_KEY = "password_here"
 # For Mac/Linux: export MONGO_KEY="password_here"
-user = "tom" # replace with your username in Atlas
-password = os.getenv("MONGO_KEY")
+user = "coronajonathan885_db_user" # replace with your username in Atlas
+password = 'College2024'
 # Edit the url to use the url it gives you - remember to enter username and password as is done below
-connection_string = f"mongodb+srv://{user}:{password}@cluster0.3walskx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+connection_string = f"mongodb+srv://coronajonathan885_db_user:sUQ8GADqiZuL8dx2@cluster0.bwkyvwk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # example for Local mongodb
-connection_string = "mongodb://localhost:27017/"
+# connection_string = "mongodb://localhost:27017/"
 
 try:
     client = MongoClient(connection_string)
