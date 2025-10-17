@@ -11,7 +11,7 @@ class MongoDBManager:
     Each conversation is stored as a single document with an array of messages.
     """
 
-    def __init__(self, connection_string: str = "mongodb://localhost:27017/", database_name: str = "chai_db"):
+    def __init__(self, connection_string: str = "mongodb+srv://coronajonathan885_db_user:sUQ8GADqiZuL8dx2@cluster0.bwkyvwk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", database_name: str = "chai_db"):
         """
         Initializes the MongoDBManager.
 
