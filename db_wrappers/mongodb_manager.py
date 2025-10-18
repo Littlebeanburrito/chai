@@ -131,7 +131,7 @@ class MongoDBManager:
         Hint: update_one(filter, {"$push": {...}, "$set": {...}, "$setOnInsert": {...}}, upsert=True)
         """
         now = datetime.now(UTC).isoformat()
-        conversation_id = "{user_id}_{thread_name}"
+        conversation_id = f"{user_id}_{thread_name}"
         update = {
             "$push": {"messages": message},
             "$set": {"updated_at": now},
@@ -165,7 +165,7 @@ class MongoDBManager:
         Hint: list(self.conversations.find({"user_id": user_id}, {"thread_name": True, "_id": False}))
         """
         matches = list(self.conversations.find(
-            {"user_": user_id},
+            {"user_id": user_id},
             {"thread_name": True, "_id": False}
         ))
         thread_names = [record["thread_name"] for record in matches]
@@ -208,7 +208,7 @@ if __name__ == "__main__":
     print("Testing MongoDBManager")
 
     # Update this connection string for your setup
-    connection_string = "mongodb://localhost:27017/"
+    connection_string = "mongodb+srv://coronajonathan885_db_user:sUQ8GADqiZuL8dx2@cluster0.bwkyvwk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     # connection_string = "mongodb+srv://username:password@cluster.mongodb.net/"
 
     manager = MongoDBManager(connection_string=connection_string, database_name="chai_test_db")
