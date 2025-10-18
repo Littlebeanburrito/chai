@@ -22,7 +22,7 @@ def main():
     # For Mac/Linux: export MONGO_KEY="password_here"
     user = "coronajonathan885_db_user"
     password = 'sUQ8GADqiZuL8dx2'
-    connection_string = f"mongodb+srv://{user}:{password}@cluster0.3walskx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    connection_string = f"mongodb+srv://coronajonathan885_db_user:sUQ8GADqiZuL8dx2@cluster0.bwkyvwk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
     # example for Local mongodb
     # connection_string = "mongodb://localhost:27017/"

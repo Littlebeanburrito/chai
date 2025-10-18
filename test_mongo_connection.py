@@ -14,7 +14,7 @@ from pymongo import MongoClient
 user = "coronajonathan885_db_user" # replace with your username in Atlas
 password = 'sUQ8GADqiZuL8dx2'
 # Edit the url to use the url it gives you - remember to enter username and password as is done below
-connection_string = "mongodb+srv://{user}:{password}@cluster0.3walskx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+connection_string = "mongodb+srv://coronajonathan885_db_user:sUQ8GADqiZuL8dx2@cluster0.bwkyvwk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # example for Local mongodb
 # connection_string = "mongodb://localhost:27017/"
